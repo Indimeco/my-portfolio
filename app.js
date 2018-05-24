@@ -25,7 +25,6 @@ $(document).ready(function($) {
 function rotateText(target,textArr,index){
 	$("#"+target).html(textArr[index]).fadeIn(1600, function() {
 		index==textArr.length-1 ? index=0 : index++; // loop index	
-		console.log(textArr.length-1);
 		$("#"+target).fadeOut(1600, function() {					
 			rotateText(target,textArr,index); // recursively continue animating					
 		}); 
