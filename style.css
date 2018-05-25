@@ -6,11 +6,11 @@ body {
 }
 footer {
   background-color: #033b7a;
-  color: white;
   padding: 1.5%;
 }
 footer a,
 footer a:hover {
+  color: white;
   text-decoration: none;
 }
 #about {
@@ -152,6 +152,9 @@ section {
   .navbar .nav {
     flex-wrap: nowrap;
     width: 30%;
+  }
+  .navbar .nav-item {
+    padding: 0% 7% 0% 7%;
   }
   .navbar .nav-link {
     color: white;
