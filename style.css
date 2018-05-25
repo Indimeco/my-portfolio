@@ -1,193 +1,176 @@
-/* Core */
-:root {
-	--white: white;
-	--black: #0660a0;
-	--deep-blue: #0550a0;
-	--deeper-blue: #033b7a;
-	--gray: #f2f2f2;
-	--black: black;
-}
-
-/* Base */
 body {
-	background-color: var(--white);
-	padding-top: 40px; /* navbar height */
-	font-size: 100%;
-	font-family: 'Source Sans Pro', sans-serif;
-	text-align: center;
+  background-color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 100%;
+  text-align: center;
 }
-
 footer {
-	background-color: var(--deeper-blue);
-	color: var(--white);
-	padding: 1.5%;
+  background-color: #033b7a;
+  color: white;
+  padding: 1.5%;
 }
-footer a, footer a:hover {
-	color: var(--white);
-	text-decoration: none;
+footer a,
+footer a:hover {
+  text-decoration: none;
 }
-
+#about {
+  margin-top: 50px;
+  /* navbar height */
+}
 section {
-	min-height: 100vh;
-	padding: 4% 7% 4% 7%;
+  min-height: 50vh;
+  padding: 4% 0% 4% 7%;
 }
-
-/* navbar */
 .navbar {
-	background-color: var(--deeper-blue);
+  display: none;
 }
-.navbar .nav {
-	display: table;
-	width: 30%;
+.cube,
+.rotated-cube {
+  background-image: none;
 }
-.navbar .nav > li {
-	text-align: center;
-	display: table-cell;
-}
-.navbar .navbar-nav .nav-item .nav-link {
-	color: var(--white);
-}
-.navbar .navbar-nav .nav-item .active:after {
-	width: 100%; /* causes the .animated-underline to trigger */
-}
-
 .image-icon {
-	max-height: 1.5em;
-	margin: 0% 2% 0% 2%;
-	padding: 0;
-	border-radius: 50%;
+  border-radius: 50%;
+  margin: 0% 2% 0% 2%;
+  max-height: 1.5em;
+  padding: 0;
 }
-
-/* Typography */
 .title {
-	margin: 2% 0% 5% 0%; 
-	color: var(--black);
-	font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  margin: 2% 0% 5% 0%;
 }
-.title h1, .title h2 {
-	font-weight: bold;
+.title h1,
+.title h2 {
+  font-weight: bold;
 }
 .title h3 {
-	font-weight: italic;
+  font-weight: italic;
 }
-
 .icon {
-	font-size: 2em;
-	color: var(--deep-blue);
+  color: #0550a0;
+  font-size: 2em;
 }
-
 .text-rotator {
-	padding-top: 6%;
+  padding-top: 6%;
 }
-
-/* Background */
 .background-image {
-	background-color: var(--gray);
-	background-size: 50%;
-	background-repeat: no-repeat;
+  background-color: #f2f2f2;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }
-.cube {
-	background-image: url("https://res.cloudinary.com/indi/image/upload/v1523572930/cube-background_gzvrzi.png");
-	background-position: top right;
-}
-.rotated-cube {
-	background-image: url("http://res.cloudinary.com/indi/image/upload/a_180/v1523572930/cube-background_gzvrzi.png");
-	background-position: bottom left;
-}
-
-/* Images */
-.portfolio-image, .portfolio-image a, .portfolio-image a img, .portfolio-image .overlay {
-	height: 30vh; 
-	width: 100%;
+.portfolio-image,
+.portfolio-image a,
+.portfolio-image a img,
+.portfolio-image .overlay {
+  height: 30vh;
+  width: 100%;
 }
 .portfolio-image {
-	position: relative;
-	margin-bottom: 10%;
+  margin-bottom: 10%;
+  position: relative;
 }
-.portfolio-image > a > img {
-	object-fit: contain;
-	background-color: var(--black);
+.portfolio-image img {
+  object-fit: contain;
+  background-color: black;
 }
 .portfolio-caption {
-	color: var(--white);
-	font-size: 0.8em;
-	padding: 3%;
-	position: absolute;
-	text-align: center;
+  color: white;
+  font-size: 0.8em;
+  padding: 3%;
+  position: absolute;
+  text-align: center;
 }
 .overlay {
-  position: absolute;
-	top: 0; bottom: 0; left: 0; right: 0;
+  background-color: #033b7a;
   opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   transition: .5s ease;
-  background-color: var(--deeper-blue);
 }
-.portfolio-image:hover .overlay {
+.overlay:hover {
   opacity: 1;
 }
-
+.animated-underline {
+  content: "";
+  display: block;
+  height: 0.2em;
+  transition: all 0.3s ease-in;
+  width: 0%;
+}
 .animated-underline-ribbon {
   display: inline-block;
 }
-.animated-underline-ribbon:after, .animated-underline-contact:after {
-	content: "";
-	width: 0%;
-	height: 0.2em;
-	display: block;
-	transition: all .3s ease-in;
-}
+/* TODO restructure animated classes as subclasses for cleaner CSS */
 .animated-underline-ribbon:after {
-	background: var(--white);
+  content: "";
+  display: block;
+  height: 0.2em;
+  transition: all 0.3s ease-in;
+  width: 0%;
+  background: white;
 }
 .animated-underline-contact:after {
-	background: var(--deep-blue);
+  content: "";
+  display: block;
+  height: 0.2em;
+  transition: all 0.3s ease-in;
+  width: 0%;
+  background: #0550a0;
 }
-.animated-underline-ribbon:hover:after, .animated-underline-contact:hover:after, .force-underlined:after {
-	width: 100%; /* the underline */
+.animated-underline-ribbon:hover:after,
+.animated-underline-contact:hover:after,
+.force-underlined:after {
+  width: 100%;
+  /* the underline */
 }
-
 .link {
-	color: var(--deeper-blue);
+  color: #033b7a;
+}
+.link :hover {
+  color: #0550a0;
+  text-decoration: none;
 }
 .link i {
-	font-size: 2em;
+  font-size: 2em;
 }
-.link:hover {
-	text-decoration: none;
-	color: var(--deep-blue);
+@media all and (max-width: 768px) and (min-aspect-ratio: 1.33333333) and (orientation: landscape) {
+  .portfolio-image,
+  .portfolio-image a,
+  .portfolio-image a img,
+  .portfolio-image .overlay {
+    height: 90vh;
+    width: 100%;
+  }
 }
-
-/* Media Specific */
-@media all and (max-width: 768px) {
-	body {
-		padding-top: 0;
-	}
-	
-	section {
-		min-height: 50vh;
-	}
-	
-	.navbar {
-		display: none;
-	}
-	
-	.cube {
-		background-image: none;
-	}
-	.rotated-cube {
-		background-image: none;
-	}
-} 
-
-@media all and (max-width: 768px) and (min-aspect-ratio: 4/3) and (orientation: landscape) {
-	.portfolio-image, .portfolio-image a, .portfolio-image a img, .portfolio-image .overlay {
-		height: 90vh; 
-		width: 100%;
-	}
+@media only screen and (min-width: 480px) {
+  .navbar {
+    background-color: #033b7a;
+    display: flex;
+  }
+  .navbar .nav {
+    flex-wrap: nowrap;
+    width: 30%;
+  }
+  .navbar .nav-link {
+    color: white;
+  }
+  .navbar .nav .nav-item .active::after {
+    width: 100%;
+    /* causes the .animated-underline to trigger */
+  }
 }
-
-@media all and (max-width: 480px) {	
-	.overlay {
-		display: none;
-	}
+@media only screen and (min-width: 768px) {
+  section {
+    min-height: 100vh;
+  }
+  .cube {
+    background-image: url("https://res.cloudinary.com/indi/image/upload/v1523572930/cube-background_gzvrzi.png");
+    background-position: top right;
+  }
+  .rotated-cube {
+    background-image: url("http://res.cloudinary.com/indi/image/upload/a_180/v1523572930/cube-background_gzvrzi.png");
+    background-position: bottom left;
+  }
 }
