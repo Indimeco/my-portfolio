@@ -22,15 +22,15 @@ footer {
 }
 
 #about {
-	margin-top: 50px; /* navbar height */
+	margin-top: 40px; /* navbar height */
 }
 
 section {
 	min-height: 50vh;
-	padding: 4% 0% 4% 7%;
+	padding: 4% 7% 4% 7%;
 }
 
-.navbar {
+#navigation-bar {
 	display: none;
 }
 
@@ -149,20 +149,25 @@ section {
 }
 
 @media only screen and (min-width: 480px) {
-	.navbar {
+	#navigation-bar {
 		background-color: @deeper-blue;
 		display: flex;
-		.nav {
-			flex-wrap: nowrap;
-			width: 30%;
-		}
-		.nav-item {
-			padding: 0% 7% 0% 7%;
-		}
-		.nav-link {
+		flex-wrap: nowrap;
+		height: 40px;
+		padding: 0.25em 0 0.5em 0;
+		position: fixed;
+		top: 0; right: 0; left: 0;
+		z-index: 1;
+		
+		div a {
 			color: @main;
+			text-decoration: none;
 		}
-		.nav .nav-item .active::after {
+		div img {
+			border-radius: 50%;
+			max-height: 100%;
+		}
+		.active::after {
 			width: 100%; /* causes the .animated-underline to trigger */
 		}
 	}
