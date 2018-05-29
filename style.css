@@ -128,7 +128,7 @@ section {
 .link {
   color: #033b7a;
 }
-.link :hover {
+.link:hover {
   color: #0550a0;
   text-decoration: none;
 }
