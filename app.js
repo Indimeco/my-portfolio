@@ -1,11 +1,23 @@
-'use strict'; // strict mode
-$(document).ready(function($) {
+(function() { //IIFE to prevent global conflicts
+	'use strict'; // Strict mode
 	
-	// Text rotation
-	rotateText('rotator',['simplicity', 'communication', 'expandability', 'utility', 'sustainability'], 0);
-	
-	// Smooth Scrolling with jQuery
-  $('a.js-scroll-trigger[href*="#"]').click(function(event) { // nav-item
+	$(document).ready(function($) {
+		// Text rotation
+		rotateText('rotator',['simplicity', 'communication', 'expandability', 'utility', 'sustainability'], 0);
+		// Smooth scrolling with jQuery
+		$('a.js-scroll-trigger[href*="#"]').click(smoothScroll);
+	});
+
+	function rotateText(target,textArr,index){
+		$('#'+target).html(textArr[index]).fadeIn(1600, function() {
+			index==textArr.length-1 ? index=0 : index++; // loop index	
+			$('#'+target).fadeOut(1600, function() {					
+				rotateText(target,textArr,index); // recursively continue animating					
+			}); 
+		});
+	}
+
+	function smoothScroll(event) {
 		event.preventDefault();
 		var location = $(this.hash); // location id e.g., '#portfolio'
 		if (location.length) {
@@ -19,14 +31,5 @@ $(document).ready(function($) {
 				$('a.nav-link[href*="#'+loc+'"]').removeClass('force-underlined');
 			},800,location[0].id);
 		}
-  });
-});
-
-function rotateText(target,textArr,index){
-	$('#'+target).html(textArr[index]).fadeIn(1600, function() {
-		index==textArr.length-1 ? index=0 : index++; // loop index	
-		$('#'+target).fadeOut(1600, function() {					
-			rotateText(target,textArr,index); // recursively continue animating					
-		}); 
-	});
-}
+	}
+}());
