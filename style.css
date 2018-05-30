@@ -165,7 +165,7 @@ section {
     border-radius: 50%;
     max-height: 100%;
   }
-  #navigation-bar .active::after {
+  .active::after {
     width: 100%;
     /* causes the .animated-underline to trigger */
   }
